@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% load static %}
+{% block body %}
+<link rel="stylesheet" href="{% static 'style.css' %}">
+<div class="wrapper rounded bg-white">
+
+    <div class="h3">RESULT FORM</div>
+
+    <div class="form">
+        <div class="row">
+            <div class="col-md-6 mt-md-0 mt-3">
+                <label>First Name</label>
+                <input type="text" class="form-control" required>
+            </div>
+        
+        </div>
+        <div class="row">
+            <div class="col-md-6 mt-md-0 mt-3">
+                <label>First Language</label>
+                <input type="number" class="form-control" required>
+            </div>      
+        </div>
+        <div class="row">
+            <div class="col-md-6 mt-md-0 mt-3">
+                <label>Second Language</label>
+                <input type="number" class="form-control" required>
+            </div>
+        <div class="row">
+                <div class="col-md-6 mt-md-0 mt-3">
+                    <label>Second Language</label>
+                    <input type="number" class="form-control" required>
+                </div>
+        </div>
+        </div class="row">
+        <div class="btn btn-primary mt-3">Submit</div>
+    </div>
+
+</div>
+{% endblock body %}

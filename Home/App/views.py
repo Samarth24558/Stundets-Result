@@ -5,5 +5,10 @@ from django.shortcuts import render
 def index(request):
     return render(request,'index.html')
 
-def header_footer(request):
-    return render(request,'header_footer.html')
+def manage(request):
+    return render(request,'manage.html')
+
+def result(request):
+    return render(request, 'results.html')
+def add_result(request):
+    return render(request, 'add_result.html')
