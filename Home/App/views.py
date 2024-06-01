@@ -10,5 +10,9 @@ def manage(request):
 
 def result(request):
     return render(request, 'results.html')
+
 def add_result(request):
     return render(request, 'add_result.html')
+
+def view(request):
+    return render(request,'view.html')
