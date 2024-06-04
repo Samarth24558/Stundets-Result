@@ -14,3 +14,14 @@ class Students(models.Model):
     def __str__(self):
         return self.name
 
+class Result(models.Model):
+    roll_num=models.DecimalField(max_digits=3,decimal_places=0)
+    fl=models.DecimalField(max_digits=3,decimal_places=0)
+    sl=models.DecimalField(max_digits=3,decimal_places=0)
+    hindi=models.DecimalField(max_digits=3,decimal_places=0)
+    ss=models.DecimalField(max_digits=3,decimal_places=0)
+    maths=models.DecimalField(max_digits=3,decimal_places=0)
+    science=models.DecimalField(max_digits=3,decimal_places=0)
+
+
+

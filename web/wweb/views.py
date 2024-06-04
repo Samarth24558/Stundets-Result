@@ -1,5 +1,5 @@
 from django.shortcuts import render,redirect
-from .models import Students
+from .models import *
 # Create your views here.
 
 def index(request):
@@ -25,12 +25,32 @@ def manage(request):
     return render(request,'manage.html')
 
 def result(request):
-    return render(request, 'results.html')
+    form=Result.objects.all()
+    context={"form":form}
+    return render(request, 'results.html',context)
 
-def add_result(request):
+def add_result(request):    
+    
+    if request.method=="POST":
+        roll_num=request.POST.get("roll_num")
+        fl=request.POST.get("fl")
+        sl=request.POST.get("sl")
+        hindi=request.POST.get("hindi")
+        ss=request.POST.get("ss")
+        maths=request.POST.get("maths")
+        science=request.POST.get("science")
+
+        form=Result(roll_num=roll_num,fl=fl,sl=sl,hindi=hindi,ss=ss,maths=maths,science=science)
+        form.save()
+        data=Result.objects.all()
+        context={"form":data}
+        return redirect("/result",context)
     return render(request, 'add_result.html')
 
 def view(request):
     form=Students.objects.all()
     context={'form':form}
     return render(request,'view.html',context)
+
+def invoice(request):
+    return render(request,"invoice.html")

@@ -9,14 +9,15 @@
 <link rel="stylesheet" href="{% static "style.css" %}">
 <div class="wrapper rounded bg-white">
     
-<form action="" method="POST">
+<form action="#" method="POST">
+    {% csrf_token %}
 <div class="h3">RESULT FORM</div>
 
 <div class="form">
 <div class="row">
 <div class="col-md-6 mt-md-0 mt-3">
-<label>Results Number</label>
-<input type="text" class="form-control" required>
+<label>Roll Number</label>
+<input type="text" class="form-control" name="roll_num" required>
 </div>
 </div>
 <div class="row">
@@ -24,35 +25,35 @@
 <div class="row">
 <div class="col-md-6 mt-md-0 mt-3">
 <label>First Language</label>
-<input type="number" class="form-control" max="125" required>
+<input type="number" name="fl" class="form-control" max="125" required>
 </div>
 <div class="col-md-6 mt-md-0 mt-3">
 <label>Second Language</label>
-<input type="number" class="form-control" max="100" required>
+<input type="number" name='sl' class="form-control" max="100" required>
 </div>
 </div>
 <div class="row">
 <div class="col-md-6 mt-md-0 mt-3">
 <label>Hindi</label>
-<input type="number" class="form-control" max="100" required>
+<input type="number" name="hindi" class="form-control" max="100" required>
 </div>
 <div class="col-md-6 mt-md-0 mt-3">
 <label>Social Science</label>
-<input type="number" class="form-control" max="100" required>
+<input type="number" name="ss" class="form-control" max="100" required>
 </div>
 </div>
 <div class="row">
 <div class="col-md-6 mt-md-0 mt-3">
 <label>Mathematics</label>
-<input type="number" class="form-control" max="100" required>
+<input type="number"  name='maths' class="form-control" max="100" required>
 </div>
 <div class="col-md-6 mt-md-0 mt-3">
 <label>Science</label>
-<input type="number" class="form-control" max="100" required>
+<input type="number" name='science' class="form-control" max="100" required>
 </div>
 </div>
     
-<button class="btn btn-primary mt-3">Submit</button>
+<button type="submit" class="btn btn-primary mt-3">Submit</button>
 </div>
 </div>
 </form>
