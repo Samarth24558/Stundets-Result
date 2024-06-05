@@ -30,7 +30,8 @@ def result(request):
     return render(request, 'results.html',context)
 
 def add_result(request):    
-    
+    data=Students.objects.all()
+    dict={"data":data}
     if request.method=="POST":
         roll_num=request.POST.get("roll_num")
         fl=request.POST.get("fl")
@@ -45,7 +46,7 @@ def add_result(request):
         data=Result.objects.all()
         context={"form":data}
         return redirect("/result",context)
-    return render(request, 'add_result.html')
+    return render(request, 'add_result.html',dict)
 
 def view(request):
     form=Students.objects.all()
@@ -54,7 +55,8 @@ def view(request):
 
 def invoice(request,pk):
     form=Result.objects.get(id=pk)
-    context={"form":form}
+    stud=Students.objects.get(id=pk)
+    context={"form":form,'stud':stud}
     return render(request,"invoice.html",context)
 
 def delete_result(request):
