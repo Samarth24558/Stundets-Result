@@ -42,13 +42,13 @@ document.write(result);
 </script></td>
 <td>
 <script>
-var percentage=((result/625))*100+"%"
-document.write(percentage)
+    var percentage=((result/625))*100+"%"
+    document.write(percentage)
 </script>
 </td>
 <td>
-<a href="{% url "invoice" %}" class="btn btn-outline-info" >👁</a>
-<a type="#" class="btn btn-outline-info">🗑️</a>
+<a href="{% url "invoice" i.id %}" class="btn btn-outline-info" >👁</a>
+<a href="{% url "delete_result" %}" class="btn btn-outline-info">🗑️</a>
 
 </td>
 </tr>

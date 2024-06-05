@@ -7,5 +7,6 @@ urlpatterns=[
     path('result',views.result),
     path('add_result',views.add_result),
     path('view',views.view),
-    path("invoice",views.invoice,name="invoice")
+    path("invoice/<str:pk>/",views.invoice,name="invoice"),
+    path("delete_result",views.delete_result,name="delete_result")
 ]

@@ -52,5 +52,10 @@ def view(request):
     context={'form':form}
     return render(request,'view.html',context)
 
-def invoice(request):
-    return render(request,"invoice.html")
+def invoice(request,pk):
+    form=Result.objects.get(id=pk)
+    context={"form":form}
+    return render(request,"invoice.html",context)
+
+def delete_result(request):
+    return render(request,"delete_result.html")
