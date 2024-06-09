@@ -1,0 +1,126 @@
+{% extends "base.html" %}
+
+{% block title %}Search Results{% endblock title %}
+
+{% block body %}
+{% if messages %}
+{% for message in messages %}
+<div class="{{ message.tags }} alert-danger d-flex align-items-center" style="color: black;font-weight:bold;" role="alert">
+    <svg class="bi flex-shrink-0 me-2" width="24" height="54" role="img" aria-label="Danger:"><use xlink:href="#exclamation-triangle-fill"/></svg>
+    <div>
+        {{ message }}
+    </div>
+  </div>
+{% endfor %}
+{% endif %} 
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.1/css/all.min.css" integrity="sha256-2XFplPlrFClt0bIdPgpz8H7ojnk10H69xRqd9+uTShA=" crossorigin="anonymous" />
+
+<form class="form-inline my-2 my-lg-0 my-04" action="search" method="POST">
+  {% csrf_token %}
+  <input class="form-control mr-sm-2" type="number" placeholder="Enter Your Student ID" name="num" aria-label="Search"/>
+  <button class="btn btn-outline-success my-2 my-sm-2" type="submit">Search</button>
+  <button class="btn btn-outline-success my-2 my-sm-2" type="reset">Reset</button>
+
+</form><br><br><br>
+
+
+
+<div class="py-2">
+  <h5 class="font-size-15">Marks Card</h5>
+  
+  <div class="table-responsive">
+  <table class="table align-middle table-nowrap table-bordered table-centered mb-0">
+  <thead>
+  <tr>
+  <th style="width: 70px;">Sl.No.</th>
+  <th>SUBJECTS</th>
+  <th>MAX MARKS</th>
+  <th>MIN MARKS</th>
+  <th>MARKS OBTAINED</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+  <td>1.</td>
+  <td>FIRST LANGUAGE</td>
+  <td>125</td>
+  <td>40</td>
+  <td>{{form.fl}}</td>
+  </tr>
+  <tr>
+  <td>2.</td>
+  <td>SECOND LANGUAGE</td>
+  <td>100</td>
+  <td>35</td>
+  <td>{{form.sl}}</td>
+  </tr>
+  <tr>
+  <td>3.</td>
+  <td>HINDI</td>
+  <td>100</td>
+  <td>35</td>
+  <td>{{form.hindi}}</td>
+  </tr>
+  <tr>
+  <td>4.</td>
+  <td>SOCIAL SCIENCE</td>
+  <td>100</td>
+  <td>35</td>
+  <td>{{form.ss}}</td>
+  </tr>
+  <tr>
+  <td>5.</td>
+  <td>MATHEMATICS</td>
+  <td>100</td>
+  <td>35</td>
+  <td>{{form.maths}}</td>
+  </tr>
+  <tr>
+  <td>6.</td>
+  <td>SCIENCE</td>
+  <td>100</td>
+  <td>35</td>
+  <td>{{form.science}}</td>
+  </tr>
+  </tbody><!-- end tbody -->
+  </table><!-- end table -->
+  <br>
+  <h5 class="font-size-15">TOTAL MARKS: 
+    <script>
+      var result = {{form.fl}} + {{form.sl}} +{{form.hindi}}+{{form.ss}}+{{form.maths}}+{{form.science}};
+      document.write(result);
+      </script></h5>
+  <h5 class="font-size-15">CONVERSION(%): 
+    <script>
+      var percentage=((result/625))*100+"%"
+      document.write(percentage)
+    </script></h5>
+    <h5 class="font-size-15">STATUS:
+      <script>
+        if ({{form.fl}} < 40 || {{form.sl}}<35 || {{form.hindi}}<35 || {{form.ss}}<35 || {{form.maths}}<35 || {{form.science}}<35 ) 
+        {
+          document.write("FAIL")
+          document.body.style.backgroundColor = "#f55361";
+          document.body.style.color = "white";
+        }
+        else
+        {
+          document.write("PASS")
+          document.body.style.backgroundColor = "#abf5ba";
+          document.body.style.color = "black";
+        }
+      </script>
+  </div><!-- end table responsive -->
+  <div class="d-print-none mt-4">
+  <div class="float-end">
+  <a href="javascript:window.print()" class="btn btn-success me-1"><i class="fa fa-print"></i></a>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div><!-- end col -->
+  </div>
+
+{% endblock body %}

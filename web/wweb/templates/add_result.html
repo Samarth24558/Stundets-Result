@@ -6,6 +6,25 @@
 
 
 {% block body %}
+
+{% comment %} {% if messages %}
+{% for message in messages %}
+<div class="{{ message.tags }} alert-danger" role="alert">
+    {{ message }}
+</div>
+{% endfor %}
+{% endif %} {% endcomment %}
+
+{% if messages %}
+{% for message in messages %}
+<div class="{{ message.tags }} alert-danger d-flex align-items-center" style="color: black;font-weight:bold;" role="alert">
+    <svg class="bi flex-shrink-0 me-2" width="24" height="54" role="img" aria-label="Danger:"><use xlink:href="#exclamation-triangle-fill"/></svg>
+    <div>
+        {{ message }}
+    </div>
+  </div>
+{% endfor %}
+{% endif %} 
 <link rel="stylesheet" href="{% static "style.css" %}">
 <div class="wrapper rounded bg-white">
     
@@ -17,7 +36,11 @@
 <div class="row">
 <div class="col-md-6 mt-md-0 mt-3">
 <label>Select Student</label>
-<input type="text" class="form-control" name="roll_num" required>
+<select class="form-control" name="roll_num" required>
+    {% for i in data %}
+    <option value="{{i.id}}">{{i.id}}</option>
+    {% endfor %}
+</select>
 </div>
 </div>
 <div class="row">

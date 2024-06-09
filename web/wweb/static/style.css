@@ -1,8 +1,6 @@
 /* Importing fonts from Google */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
 
-
-
 body {
     background: linear-gradient(45deg, #ce1e53, #8f00c7);
     min-height: 100vh;

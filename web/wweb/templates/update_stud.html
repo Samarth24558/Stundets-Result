@@ -3,21 +3,7 @@
 {% block title %}Manage Students{% endblock title %}
 
 {% block body %}
-
-{% if messages %}
-{% for message in messages %}
-<div class="{{ message.tags }} alert-danger d-flex align-items-center" style="color: black;font-weight:bold;" role="alert">
-    <svg class="bi flex-shrink-0 me-2" width="24" height="54" role="img" aria-label="Danger:"><use xlink:href="#exclamation-triangle-fill"/></svg>
-    <div>
-        {{ message }}
-    </div>
-  </div>
-{% endfor %}
-{% endif %} 
-
-
-
-<form action="#" method="POST">
+<form action="{% url "update" data.id %}" method="POST">
     {% csrf_token %}
 <section class="h-100 bg-dark">
 <div class="container py-5 h-100">
@@ -38,31 +24,31 @@ style="border-top-left-radius: .25rem; border-bottom-left-radius: .25rem;" />
 <div class="row">
 <div class="col-md-6 mb-4">
 <div data-mdb-input-init class="form-outline">
-<input type="text" id="form3Example1m" name="name" class="form-control form-control-lg" required/>
+<input type="text" id="form3Example1m"value={{data.name}}  name="name" class="form-control form-control-lg" required/>
 <label class="form-label" for="form3Example1m">Name</label>
 </div>
 </div>
 <div class="col-md-6 mb-4">
 <div data-mdb-input-init class="form-outline">
-<input type="text" id="form3Example1m1" name="mname" class="form-control form-control-lg" required/>
+<input type="text" id="form3Example1m1" value="{{data.mother_name}}" name="mname" class="form-control form-control-lg" required/>
 <label class="form-label" for="form3Example1m1">Mother's name</label>
 </div>
 </div>
 <div class="col-md-6 mb-4">
 <div data-mdb-input-init class="form-outline">
-<input type="text" id="form3Example1m" name="fname" class="form-control form-control-lg" required/>
+<input type="text" id="form3Example1m" value={{data.father_name}}  name="fname" class="form-control form-control-lg" required/>
 <label class="form-label" for="form3Example1n1">Father's name</label>
 </div>
 </div>
 </div>
 
 <div data-mdb-input-init class="form-outline mb-4">
-<input type="text" id="form3Example8" name="address" class="form-control form-control-lg" required/>
+<input type="text" id="form3Example8" value={{data.address}} name="address" class="form-control form-control-lg" required/>
 <label class="form-label" for="form3Example8">Address</label>
 </div>
 
 <div data-mdb-input-init class="form-outline mb-4">
-<select type="text" id="form3Example8" name="gender" class="form-control form-control-lg" required>
+<select type="text" id="form3Example8" value="{{data.gender}}" name="gender" class="form-control form-control-lg" required>
     <option value="male">Male</option>
     <option value="female">Female</option>
 </select>
@@ -71,23 +57,23 @@ style="border-top-left-radius: .25rem; border-bottom-left-radius: .25rem;" />
 
 
 <div data-mdb-input-init class="form-outline mb-4">
-<input type="date" id="form3Example9" name="dob" class="form-control form-control-lg" required/>
+<input type="date" id="form3Example9" value={{data.date}} name="dob" class="form-control form-control-lg" required/>
 <label class="form-label" for="form3Example9">DOB</label>
 </div>
 
 <div data-mdb-input-init class="form-outline mb-4">
-<input type="text" id="form3Example99" value="ds" name="course" class="form-control form-control-lg" required/>
+<input type="text" id="form3Example99" value={{data.course}} name="course" class="form-control form-control-lg" required/>
 <label class="form-label" for="form3Example99">Course</label>
 </div>
 
 <div data-mdb-input-init class="form-outline mb-4">
-<input type="tel" pattern="[0-9]{10}" id="form3Example97" name="contact" class="form-control form-control-lg" required/>
+<input type="tel" pattern="[0-9]{10}" value={{data.contact}} id="form3Example97" name="contact" class="form-control form-control-lg" required/>
 <label class="form-label" for="form3Example97">Contact</label>
 </div>
 
 <div class="d-flex justify-content-end pt-3">
-<button  type="reset" data-mdb-button-init data-mdb-ripple-init class="btn btn-light btn-lg">Reset all</button>
-<button  type="submit" data-mdb-button-init data-mdb-ripple-init class="btn btn-warning btn-lg ms-2">Submit form</button>
+<a href="view" class="btn btn-light btn-lg">Cancel </a>
+<button  type="submit" data-mdb-button-init data-mdb-ripple-init class="btn btn-warning btn-lg ms-2">Update form</button>
 </div>
 
 </div>

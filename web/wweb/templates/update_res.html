@@ -1,0 +1,63 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Add Results{% endblock title %}
+
+{% block body %}
+
+<link rel="stylesheet" href="{% static "style.css" %}">
+<div class="wrapper rounded bg-white">
+    
+<form action="{% url "updateres" data.roll_num %}" method="POST">
+    {% csrf_token %}
+<div class="h3">RESULT FORM</div>
+
+<div class="form">
+<div class="row">
+<div class="col-md-6 mt-md-0 mt-3">
+<label>Select Student</label>
+<select class="form-control" value="{{data.roll_num}}" name="roll_num" disabled>
+    <option value="{{data.roll_num}}">{{data.roll_num}}</option>
+</select>
+</div>
+</div>
+<div class="row">
+</div>
+<div class="row">
+<div class="col-md-6 mt-md-0 mt-3">
+<label>First Language</label>
+<input type="number" name="fl" value="{{data.fl}}" class="form-control" max="125" required>
+</div>
+<div class="col-md-6 mt-md-0 mt-3">
+<label>Second Language</label>
+<input type="number" name='sl' value="{{data.sl}}" class="form-control" max="100" required>
+</div>
+</div>
+<div class="row">
+<div class="col-md-6 mt-md-0 mt-3">
+<label>Hindi</label>
+<input type="number" name="hindi" value="{{data.hindi}}" class="form-control" max="100" required>
+</div>
+<div class="col-md-6 mt-md-0 mt-3">
+<label>Social Science</label>
+<input type="number" name="ss" value="{{data.ss}}" class="form-control" max="100" required>
+</div>
+</div>
+<div class="row">
+<div class="col-md-6 mt-md-0 mt-3">
+<label>Mathematics</label>
+<input type="number"  name='maths' value="{{data.maths}}" class="form-control" max="100" required>
+</div>
+<div class="col-md-6 mt-md-0 mt-3">
+<label>Science</label>
+<input type="number" name='science' value="{{data.science}}" class="form-control" max="100" required>
+</div>
+</div>
+    
+<button type="submit" class="btn btn-primary mt-3">Update</button>
+<a href="/result" class="btn btn-primary mt-3">Cancel</a>
+</div>
+</div>
+</form>
+
+{% endblock body %}

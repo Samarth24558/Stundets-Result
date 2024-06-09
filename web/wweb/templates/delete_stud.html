@@ -3,6 +3,17 @@
 
 {% block body %}
 
+{% if messages %}
+{% for message in messages %}
+<div class="{{ message.tags }} alert-danger d-flex align-items-center" style="color: black;font-weight:bold;" role="alert">
+    <svg class="bi flex-shrink-0 me-2" width="24" height="54" role="img" aria-label="Danger:"><use xlink:href="#exclamation-triangle-fill"/></svg>
+    <div>
+        {{ message }}
+    </div>
+  </div>
+{% endfor %}
+{% endif %} 
+
 <link rel="stylesheet" href="{% static "delete_result.css" %}">
 <div class="text-center">
 <!-- Button HTML (to Trigger Modal) -->
@@ -21,11 +32,11 @@
 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
 </div>
 <div class="modal-body">
-<p style="color:black;">Do you really want to delete the record of {{data}}? This process cannot be undone.</p>
+<p style="color:black;">Do you really want to delete the record of {{form}}? This process cannot be undone.</p>
 </div>
 <div class="modal-footer">
-<a href="result" style="color:white;" class="btn btn-info">Cancel</a>
-<a href="{% url "deleteres" data %}" style="color:white;" class="btn btn-danger">Delete</a>
+<a href="/view" style="color:white;" class="btn btn-info">Cancel</a>
+<a href="{% url "delete" form %}" style="color:white;" class="btn btn-danger">Delete</a>
 </div>
 </div>
 </div>  
