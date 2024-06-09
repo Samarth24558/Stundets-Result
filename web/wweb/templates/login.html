@@ -1,0 +1,69 @@
+{% load static %}
+
+{% if messages %}
+{% for message in messages %}
+<div class="{{ message.tags }} alert-danger d-flex align-items-center" style="color: black;font-weight:bold;" role="alert">
+    <svg class="bi flex-shrink-0 me-2" width="24" height="54" role="img" aria-label="Danger:"><use xlink:href="#exclamation-triangle-fill"/></svg>
+    <div>
+        {{ message }}
+    </div>
+  </div>
+{% endfor %}
+{% endif %}
+
+<title> Login </title>
+
+<link rel="shortcut icon" href={%  static "assets/images/fav.jpg" %}>
+<link rel="stylesheet" href={%  static "assets/css/bootstrap.min.css" %}>
+<link rel="stylesheet" href={%  static "assets/css/fontawsom-all.min.css" %}>
+<link rel="stylesheet" type="text/css" href={%  static "assets/css/style.css"%} />
+</head>
+
+<form action="#" method="POST">
+    {% csrf_token %}
+<div class="container-fluid full-bg h-100">
+<div class="container h-100">
+<div class="row no-margin h-100">
+<div class="bg-layer d-flex col-md-4">
+<div class="login-box row">
+<h3>User login</h3>
+<div class="input-group mb-3">
+<div class="input-group-prepend">
+<span class="input-group-text" id="basic-addon1"><i class="fas fa-at"></i></span>
+</div>
+<input type="text" class="form-control" placeholder="Username" name="username" aria-label="Username" aria-describedby="basic-addon1" required/>
+</div>
+
+<div class="input-group mb-3">
+<div class="input-group-prepend">
+<span class="input-group-text" id="basic-addon1"><i class="fas fa-key"></i></span>
+</div>
+<input type="password" class="form-control" placeholder="Password" name="password" aria-label="Username" aria-describedby="basic-addon1" required/>
+</div>
+
+
+<p>
+<label class="container">
+<input type="checkbox">
+<span class="checkmark"></span>Remember me
+</label>
+<button type="submit" class="btn btn-success">Login</button>
+
+<p class="no-c">Not a member yet? <a href="signup">Create your Account</a></p>
+</div>
+</div>    
+</div>
+
+<div class="foter-credit">
+<a href="https://smarteyeapps.com/">Designed by : Smarteyeapps.com</a>  
+</div>
+</div>
+
+</div>
+</form>
+
+
+<script src={% static "assets/js/jquery-3.2.1.min.js" %}></script>
+<script src={% static "assets/js/popper.min.js" %}></script>
+<script src={% static "assets/js/bootstrap.min.js" %}></script>        
+<script src={% static "assets/js/script.js" %}></script>

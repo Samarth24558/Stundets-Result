@@ -1,0 +1,77 @@
+{% load static %}
+
+<title> Sign up</title>
+
+{% if messages %}
+{% for message in messages %}
+<div class="{{ message.tags }} alert-danger d-flex align-items-center" style="color: black;font-weight:bold;" role="alert">
+    <svg class="bi flex-shrink-0 me-2" width="24" height="54" role="img" aria-label="Danger:"><use xlink:href="#exclamation-triangle-fill"/></svg>
+    <div>
+        {{ message }}
+    </div>
+  </div>
+{% endfor %}
+{% endif %}
+
+<link rel="shortcut icon" href={% static "assets/images/fav.jpg" %}>
+<link rel="stylesheet" href={% static "assets/css/bootstrap.min.css" %}>
+<link rel="stylesheet" href={% static "assets/css/fontawsom-all.min.css"%}>
+<link rel="stylesheet" type="text/css" href={% static "assets/css/style.css" %} />
+
+<form action="#" method="POST">
+    {% csrf_token %}
+<div class="container-fluid full-bg h-100">
+<div class="container h-100">
+<div class="row no-margin h-100">
+<div class="bg-layer d-flex col-md-4">
+<div class="login-box row">
+<h3>User Registeration</h3>
+<div class="input-group mb-3">
+<div class="input-group-prepend">
+<span class="input-group-text" id="basic-addon1"><i class="fas fa-user"></i></span>
+</div>
+<input type="text"  name="name" class="form-control" placeholder="Full Name" aria-label="Username" aria-describedby="basic-addon1" required/>
+</div>
+<div class="input-group mb-3">
+<div class="input-group-prepend">
+<span class="input-group-text" id="basic-addon1"><i class="fas fa-at"></i></span>
+</div>
+<input type="email"  name="username" class="form-control" placeholder="Email Address" aria-label="Username" aria-describedby="basic-addon1" required/>
+</div>
+<div class="input-group mb-3">
+<div class="input-group-prepend">
+<span class="input-group-text" id="basic-addon1"><i class="fas fa-lock"></i></span>
+</div>
+<input type="text"  name="password" class="form-control" placeholder="Password" aria-label="Username" aria-describedby="basic-addon1" required/>
+</div>
+<div class="input-group mb-3">
+<div class="input-group-prepend">
+<span class="input-group-text" id="basic-addon1"><i class="fas fa-lock"></i></span>
+</div>
+<input type="text"  name="rpassword" class="form-control" placeholder="Repeat Password" aria-label="Username" aria-describedby="basic-addon1" required/>
+</div>
+
+
+
+
+<button class="btn btn-success">Click to Login</button>
+
+<p class="no-c">Already have Account? <a href="login">Sign In</a></p>
+</div>
+</div>    
+</div>
+
+<div class="foter-credit">
+<a href="https://smarteyeapps.com/">Designed by : Smarteyeapps.com</a>  
+</div>
+</div>
+
+</div>
+</form>
+
+<script src={% static "assets/js/jquery-3.2.1.min.js" %}></script>
+<script src={% static "assets/js/popper.min.js" %}></script>
+<script src={% static "assets/js/bootstrap.min.js" %}></script>        
+<script src={% static "assets/js/script.js" %}></script>
+
+
