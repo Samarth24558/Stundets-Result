@@ -25,7 +25,8 @@
 </form><br><br><br>
 
 
-
+<center><i><h1 id="pass"></h1></i></center>
+<center><i><h1 id="fail"></h1></i></center>
 <div class="py-2">
   <h5 class="font-size-15">Marks Card</h5>
   
@@ -103,12 +104,15 @@
           document.write("FAIL")
           document.body.style.backgroundColor = "#f55361";
           document.body.style.color = "white";
+          document.getElementById("pass").innerHTML="Better Luck next Time"
+
         }
         else
         {
           document.write("PASS")
           document.body.style.backgroundColor = "#abf5ba";
           document.body.style.color = "black";
+          document.getElementById("pass").innerHTML="Congratulations"
         }
       </script>
   </div><!-- end table responsive -->

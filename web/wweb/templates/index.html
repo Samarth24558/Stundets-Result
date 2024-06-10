@@ -47,12 +47,6 @@
   </thead>
   <tbody id="students-tbody">
   {% for i in form %}
-  <script>
-    if ({{i.fl}} < 40 || {{i.sl}}<35 || {{i.hindi}}<35 || {{i.ss}}<35 || {{i.maths}}<35 || {{i.science}}<35 ) 
-    {
-       window.stop();
-    }
-  </script>
   <tr>
   <td>{{i.roll_num}}</td>
   <td>625</td>
