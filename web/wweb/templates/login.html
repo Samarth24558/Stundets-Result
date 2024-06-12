@@ -38,15 +38,14 @@
 <div class="input-group-prepend">
 <span class="input-group-text" id="basic-addon1"><i class="fas fa-key"></i></span>
 </div>
-<input type="password" class="form-control" placeholder="Password" name="password" aria-label="Username" aria-describedby="basic-addon1" required/>
+<input type="password" id="show" class="form-control" placeholder="Password" name="password" aria-label="Username" aria-describedby="basic-addon1" required/>
 </div>
 
 
 <p>
 <label class="container">
-<input type="checkbox">
-<span class="checkmark"></span>Remember me
-</label>
+<input type="checkbox" onclick="myFunc()">
+<span class="checkmark"></span>Show Password</label>
 <button type="submit" class="btn btn-success">Login</button>
 
 <p class="no-c">Not a member yet? <a href="signup">Create your Account</a></p>
@@ -62,8 +61,20 @@
 </div>
 </form>
 
-
 <script src={% static "assets/js/jquery-3.2.1.min.js" %}></script>
 <script src={% static "assets/js/popper.min.js" %}></script>
 <script src={% static "assets/js/bootstrap.min.js" %}></script>        
 <script src={% static "assets/js/script.js" %}></script>
+<script>
+  function myFunc()
+  {
+      console.log("Hello world")
+      var input = document.getElementById("show");
+      if (input.type === "password") {
+        input.type = "text";
+      } 
+      else {
+        input.type = "password";
+      }
+  }
+</script>
